@@ -1,0 +1,6 @@
+GET http://localhost:3000/todos/?priority=O%20DO
+
+###
+GET http://localhost:3000/todos/?status=TO%20DO
+###
+GET http://localhost:3000/agenda/?date=2021-12-12
