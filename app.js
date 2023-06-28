@@ -115,35 +115,6 @@ app.get("/todos/:todoId/", async (request, response) => {
 
 const validateDate = async (request, response, next) => {
   const { date } = request.query;
-  //   if (date !== undefined) {
-  //     try {
-  //       const myDate = new Date(date);
-
-  //       const formatedDate = format(new Date(date), "yyyy-MM-dd");
-  //       console.log(formatedDate, "f");
-  //       const result = toDate(
-  //         new Date(
-  //           `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}`
-  //         )
-  //       );
-  //       console.log(result, "r");
-  //       console.log(new Date(), "new");
-
-  //       const isValidDate = await isValid(result);
-  //       console.log(isValidDate, "V");
-  //       if (isValidDate === true) {
-  //         request.date = formatedDate;
-  //       } else {
-  //         response.status(400);
-  //         response.send("Invalid Due Date");
-  //         return;
-  //       }
-  //     } catch (e) {
-  //       response.status(400);
-  //       response.send("Invalid Due Date");
-  //       return;
-  //     }
-  //   }
   if (date !== undefined) {
     try {
       console.log(date);
@@ -176,18 +147,6 @@ const validateDate = async (request, response, next) => {
   }
   next();
 };
-// app.get("/agenda/", validateDate, async (request, response) => {
-//   const { date } = request;
-//   if (date === undefined) {
-//     response.status(400);
-//     response.send("Invalid Due Date");
-//   } else {
-//     console.log(1);
-//     const dueDateSqlQuery = `SELECT * FROM todo WHERE due_date = '${date}'`;
-//     const dbResults = await db.all(dueDateSqlQuery);
-//     response.send(dbResults);
-//   }
-// });
 
 app.get("/agenda/", validateDate, async (request, response) => {
   const { date } = request;
